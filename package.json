@@ -4,6 +4,7 @@
   "type": "module",
   "scripts": {
     "stripe:setup": "node scripts/setup-stripe.mjs",
+    "stripe:live": "STRIPE_ALLOW_LIVE=1 node scripts/setup-stripe.mjs",
     "test": "node --test tests/*.test.mjs",
     "build": "node scripts/build.mjs"
   },

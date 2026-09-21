@@ -45,7 +45,7 @@ for (const button of document.querySelectorAll("[data-share]")) {
 }
 
 for (const button of document.querySelectorAll("[data-copy]")) {
-  const actions = button.parentElement;
+  const actions = button.closest(".actions");
   const status = actions.querySelector(".copy-status");
   const fallback = actions.querySelector(".copy-fallback");
   const input = fallback.querySelector("input");

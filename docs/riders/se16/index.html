@@ -10,37 +10,46 @@
 </head>
 <body>
   <a class="skip" href="#businesses">Skip to businesses</a>
-  <header class="site-header">
-    <p class="eyebrow"><a href="../../">Rider sales</a></p>
-    <h1>SE16</h1>
-    <p>Bermondsey, Surrey Quays and Rotherhithe. Show the demo, share it, then take payment.</p>
+  <header class="masthead">
+    <div class="site-header">
+      <p class="eyebrow"><a href="../../">Rider sales</a></p>
+      <h1>SE16</h1>
+      <p>Bermondsey, Surrey Quays and Rotherhithe. Show the demo, share it, then take payment.</p>
+    </div>
   </header>
   <div class="search-bar">
-    <form role="search">
-      <label for="business-search">Find a business</label>
-      <input id="business-search" type="search" placeholder="Name or area" autocomplete="off" enterkeyhint="search">
-    </form>
-    <p id="search-count" role="status" aria-live="polite">5 businesses</p>
-    <p class="setup-note">The £250 one-time setup fee applies to every plan.</p>
+    <div class="search-panel">
+      <form role="search">
+        <label for="business-search">Find a business</label>
+        <input id="business-search" type="search" placeholder="Name or area" autocomplete="off" enterkeyhint="search">
+      </form>
+      <p id="search-count" role="status" aria-live="polite">5 businesses</p>
+      <p class="setup-note">The £250 one-time setup fee applies to every plan.</p>
+    </div>
   </div>
   <main id="businesses" class="cards">
     <article class="card" data-name="Servewell Cafe" data-area="4–6 West Lane, Bermondsey, SE16 4NY" data-reference="rider_se16_servewell_cafe">
-    <img class="preview" src="https://androidkrayze.github.io/servewell-cafe-demo/assets/hero.jpg" alt="Website preview of Servewell Cafe" loading="eager" decoding="async">
-    <div class="card-body">
+    <div class="preview-wrap">
+      <img class="preview" src="https://androidkrayze.github.io/servewell-cafe-demo/assets/hero.jpg" alt="Website preview of Servewell Cafe" loading="eager" decoding="async">
       <p class="status" data-status="not_visited">Not visited</p>
+    </div>
+    <div class="card-body">
       <h2>Servewell Cafe</h2>
       <p class="area">4–6 West Lane, Bermondsey, SE16 4NY</p>
+      <p class="offer">From £300 today</p>
       <div class="actions">
         <a class="button button-secondary" href="https://androidkrayze.github.io/servewell-cafe-demo/" target="_blank" rel="noopener noreferrer">View website demo</a>
-        <button class="button button-secondary" type="button" data-copy data-url="https://androidkrayze.github.io/servewell-cafe-demo/">Copy demo link</button>
+        <div class="action-row">
+          <button class="button button-secondary" type="button" data-copy data-url="https://androidkrayze.github.io/servewell-cafe-demo/">Copy demo link</button>
+          <a class="button button-secondary" data-whatsapp data-name="Servewell Cafe" data-demo="https://androidkrayze.github.io/servewell-cafe-demo/" href="https://wa.me/?text=Hello%2C%20we%20created%20a%20website%20demonstration%20for%20Servewell%20Cafe.%0A%0AYou%20can%20view%20it%20here%3A%0Ahttps%3A%2F%2Fandroidkrayze.github.io%2Fservewell-cafe-demo%2F%0A%0AIf%20you%20like%20it%2C%20we%20can%20publish%20and%20manage%20it%20for%20your%20business.">Share via WhatsApp</a>
+        </div>
         <p class="copy-status" role="status" aria-live="polite"></p>
         <label class="copy-fallback" hidden>
           Copy this demo link
           <input readonly value="https://androidkrayze.github.io/servewell-cafe-demo/">
         </label>
-        <a class="button button-secondary" data-whatsapp data-name="Servewell Cafe" data-demo="https://androidkrayze.github.io/servewell-cafe-demo/" href="https://wa.me/?text=Hello%2C%20we%20created%20a%20website%20demonstration%20for%20Servewell%20Cafe.%0A%0AYou%20can%20view%20it%20here%3A%0Ahttps%3A%2F%2Fandroidkrayze.github.io%2Fservewell-cafe-demo%2F%0A%0AIf%20you%20like%20it%2C%20we%20can%20publish%20and%20manage%20it%20for%20your%20business.">Share via WhatsApp</a>
         <button class="button button-secondary" type="button" data-share data-name="Servewell Cafe" data-demo="https://androidkrayze.github.io/servewell-cafe-demo/" hidden>Share</button>
-        <button class="button button-primary" type="button" data-purchase>Purchase website</button>
+        <button class="button button-primary button-purchase" type="button" data-purchase>Purchase website</button>
       </div>
     </div>
     <dialog aria-labelledby="plans-servewell_cafe">
@@ -54,8 +63,9 @@
       <h3>Annual</h3>
       
     </div>
+    <p class="today-price">£500 <span>today</span></p>
     <p>£250 setup + £250 annually — £500 today</p>
-    <p>Charged today: £500. Then £250 each year. The setup fee is not charged again.</p>
+    <p class="renews">Then £250 each year. The setup fee is not charged again.</p>
     <a class="button button-primary" href="https://buy.stripe.com/test_28E14hd40bPc5bW8361gs00?client_reference_id=rider_se16_servewell_cafe">Checkout · £500 today</a>
   </li>
 <li class="plan popular">
@@ -63,8 +73,9 @@
       <h3>Six-monthly</h3>
       <p class="badge">Most Popular</p>
     </div>
+    <p class="today-price">£450 <span>today</span></p>
     <p>£250 setup + £200 every 6 months — £450 today</p>
-    <p>Charged today: £450. Then £200 every 6 months. The setup fee is not charged again.</p>
+    <p class="renews">Then £200 every 6 months. The setup fee is not charged again.</p>
     <a class="button button-primary" href="https://buy.stripe.com/test_bJe5kxaVSf1o5bWeru1gs01?client_reference_id=rider_se16_servewell_cafe">Checkout · £450 today</a>
   </li>
 <li class="plan">
@@ -72,29 +83,35 @@
       <h3>Monthly</h3>
       
     </div>
+    <p class="today-price">£300 <span>today</span></p>
     <p>£250 setup + £50 monthly — £300 today</p>
-    <p>Charged today: £300. Then £50 each month. The setup fee is not charged again.</p>
+    <p class="renews">Then £50 each month. The setup fee is not charged again.</p>
     <a class="button button-primary" href="https://buy.stripe.com/test_00wbIV3tq2eCfQAabe1gs02?client_reference_id=rider_se16_servewell_cafe">Checkout · £300 today</a>
   </li></ol>
     </dialog>
   </article>
 <article class="card" data-name="La Cigale" data-area="172 Lower Road, Surrey Quays, SE16 2UN" data-reference="rider_se16_la_cigale">
-    <img class="preview" src="https://androidkrayze.github.io/la-cigale-demo/images/hero-storefront.jpg" alt="Website preview of La Cigale" loading="lazy" decoding="async">
-    <div class="card-body">
+    <div class="preview-wrap">
+      <img class="preview" src="https://androidkrayze.github.io/la-cigale-demo/images/hero-storefront.jpg" alt="Website preview of La Cigale" loading="lazy" decoding="async">
       <p class="status" data-status="not_visited">Not visited</p>
+    </div>
+    <div class="card-body">
       <h2>La Cigale</h2>
       <p class="area">172 Lower Road, Surrey Quays, SE16 2UN</p>
+      <p class="offer">From £300 today</p>
       <div class="actions">
         <a class="button button-secondary" href="https://androidkrayze.github.io/la-cigale-demo/" target="_blank" rel="noopener noreferrer">View website demo</a>
-        <button class="button button-secondary" type="button" data-copy data-url="https://androidkrayze.github.io/la-cigale-demo/">Copy demo link</button>
+        <div class="action-row">
+          <button class="button button-secondary" type="button" data-copy data-url="https://androidkrayze.github.io/la-cigale-demo/">Copy demo link</button>
+          <a class="button button-secondary" data-whatsapp data-name="La Cigale" data-demo="https://androidkrayze.github.io/la-cigale-demo/" href="https://wa.me/?text=Hello%2C%20we%20created%20a%20website%20demonstration%20for%20La%20Cigale.%0A%0AYou%20can%20view%20it%20here%3A%0Ahttps%3A%2F%2Fandroidkrayze.github.io%2Fla-cigale-demo%2F%0A%0AIf%20you%20like%20it%2C%20we%20can%20publish%20and%20manage%20it%20for%20your%20business.">Share via WhatsApp</a>
+        </div>
         <p class="copy-status" role="status" aria-live="polite"></p>
         <label class="copy-fallback" hidden>
           Copy this demo link
           <input readonly value="https://androidkrayze.github.io/la-cigale-demo/">
         </label>
-        <a class="button button-secondary" data-whatsapp data-name="La Cigale" data-demo="https://androidkrayze.github.io/la-cigale-demo/" href="https://wa.me/?text=Hello%2C%20we%20created%20a%20website%20demonstration%20for%20La%20Cigale.%0A%0AYou%20can%20view%20it%20here%3A%0Ahttps%3A%2F%2Fandroidkrayze.github.io%2Fla-cigale-demo%2F%0A%0AIf%20you%20like%20it%2C%20we%20can%20publish%20and%20manage%20it%20for%20your%20business.">Share via WhatsApp</a>
         <button class="button button-secondary" type="button" data-share data-name="La Cigale" data-demo="https://androidkrayze.github.io/la-cigale-demo/" hidden>Share</button>
-        <button class="button button-primary" type="button" data-purchase>Purchase website</button>
+        <button class="button button-primary button-purchase" type="button" data-purchase>Purchase website</button>
       </div>
     </div>
     <dialog aria-labelledby="plans-la_cigale">
@@ -108,8 +125,9 @@
       <h3>Annual</h3>
       
     </div>
+    <p class="today-price">£500 <span>today</span></p>
     <p>£250 setup + £250 annually — £500 today</p>
-    <p>Charged today: £500. Then £250 each year. The setup fee is not charged again.</p>
+    <p class="renews">Then £250 each year. The setup fee is not charged again.</p>
     <a class="button button-primary" href="https://buy.stripe.com/test_28E14hd40bPc5bW8361gs00?client_reference_id=rider_se16_la_cigale">Checkout · £500 today</a>
   </li>
 <li class="plan popular">
@@ -117,8 +135,9 @@
       <h3>Six-monthly</h3>
       <p class="badge">Most Popular</p>
     </div>
+    <p class="today-price">£450 <span>today</span></p>
     <p>£250 setup + £200 every 6 months — £450 today</p>
-    <p>Charged today: £450. Then £200 every 6 months. The setup fee is not charged again.</p>
+    <p class="renews">Then £200 every 6 months. The setup fee is not charged again.</p>
     <a class="button button-primary" href="https://buy.stripe.com/test_bJe5kxaVSf1o5bWeru1gs01?client_reference_id=rider_se16_la_cigale">Checkout · £450 today</a>
   </li>
 <li class="plan">
@@ -126,29 +145,35 @@
       <h3>Monthly</h3>
       
     </div>
+    <p class="today-price">£300 <span>today</span></p>
     <p>£250 setup + £50 monthly — £300 today</p>
-    <p>Charged today: £300. Then £50 each month. The setup fee is not charged again.</p>
+    <p class="renews">Then £50 each month. The setup fee is not charged again.</p>
     <a class="button button-primary" href="https://buy.stripe.com/test_00wbIV3tq2eCfQAabe1gs02?client_reference_id=rider_se16_la_cigale">Checkout · £300 today</a>
   </li></ol>
     </dialog>
   </article>
 <article class="card" data-name="Pop Inn Cafe" data-area="258 Southwark Park Road, Bermondsey, SE16 3RN" data-reference="rider_se16_pop_inn_cafe">
-    <img class="preview" src="https://androidkrayze.github.io/pop-inn-cafe-demo/photos/hero.jpg" alt="Website preview of Pop Inn Cafe" loading="lazy" decoding="async">
-    <div class="card-body">
+    <div class="preview-wrap">
+      <img class="preview" src="https://androidkrayze.github.io/pop-inn-cafe-demo/photos/hero.jpg" alt="Website preview of Pop Inn Cafe" loading="lazy" decoding="async">
       <p class="status" data-status="not_visited">Not visited</p>
+    </div>
+    <div class="card-body">
       <h2>Pop Inn Cafe</h2>
       <p class="area">258 Southwark Park Road, Bermondsey, SE16 3RN</p>
+      <p class="offer">From £300 today</p>
       <div class="actions">
         <a class="button button-secondary" href="https://androidkrayze.github.io/pop-inn-cafe-demo/" target="_blank" rel="noopener noreferrer">View website demo</a>
-        <button class="button button-secondary" type="button" data-copy data-url="https://androidkrayze.github.io/pop-inn-cafe-demo/">Copy demo link</button>
+        <div class="action-row">
+          <button class="button button-secondary" type="button" data-copy data-url="https://androidkrayze.github.io/pop-inn-cafe-demo/">Copy demo link</button>
+          <a class="button button-secondary" data-whatsapp data-name="Pop Inn Cafe" data-demo="https://androidkrayze.github.io/pop-inn-cafe-demo/" href="https://wa.me/?text=Hello%2C%20we%20created%20a%20website%20demonstration%20for%20Pop%20Inn%20Cafe.%0A%0AYou%20can%20view%20it%20here%3A%0Ahttps%3A%2F%2Fandroidkrayze.github.io%2Fpop-inn-cafe-demo%2F%0A%0AIf%20you%20like%20it%2C%20we%20can%20publish%20and%20manage%20it%20for%20your%20business.">Share via WhatsApp</a>
+        </div>
         <p class="copy-status" role="status" aria-live="polite"></p>
         <label class="copy-fallback" hidden>
           Copy this demo link
           <input readonly value="https://androidkrayze.github.io/pop-inn-cafe-demo/">
         </label>
-        <a class="button button-secondary" data-whatsapp data-name="Pop Inn Cafe" data-demo="https://androidkrayze.github.io/pop-inn-cafe-demo/" href="https://wa.me/?text=Hello%2C%20we%20created%20a%20website%20demonstration%20for%20Pop%20Inn%20Cafe.%0A%0AYou%20can%20view%20it%20here%3A%0Ahttps%3A%2F%2Fandroidkrayze.github.io%2Fpop-inn-cafe-demo%2F%0A%0AIf%20you%20like%20it%2C%20we%20can%20publish%20and%20manage%20it%20for%20your%20business.">Share via WhatsApp</a>
         <button class="button button-secondary" type="button" data-share data-name="Pop Inn Cafe" data-demo="https://androidkrayze.github.io/pop-inn-cafe-demo/" hidden>Share</button>
-        <button class="button button-primary" type="button" data-purchase>Purchase website</button>
+        <button class="button button-primary button-purchase" type="button" data-purchase>Purchase website</button>
       </div>
     </div>
     <dialog aria-labelledby="plans-pop_inn_cafe">
@@ -162,8 +187,9 @@
       <h3>Annual</h3>
       
     </div>
+    <p class="today-price">£500 <span>today</span></p>
     <p>£250 setup + £250 annually — £500 today</p>
-    <p>Charged today: £500. Then £250 each year. The setup fee is not charged again.</p>
+    <p class="renews">Then £250 each year. The setup fee is not charged again.</p>
     <a class="button button-primary" href="https://buy.stripe.com/test_28E14hd40bPc5bW8361gs00?client_reference_id=rider_se16_pop_inn_cafe">Checkout · £500 today</a>
   </li>
 <li class="plan popular">
@@ -171,8 +197,9 @@
       <h3>Six-monthly</h3>
       <p class="badge">Most Popular</p>
     </div>
+    <p class="today-price">£450 <span>today</span></p>
     <p>£250 setup + £200 every 6 months — £450 today</p>
-    <p>Charged today: £450. Then £200 every 6 months. The setup fee is not charged again.</p>
+    <p class="renews">Then £200 every 6 months. The setup fee is not charged again.</p>
     <a class="button button-primary" href="https://buy.stripe.com/test_bJe5kxaVSf1o5bWeru1gs01?client_reference_id=rider_se16_pop_inn_cafe">Checkout · £450 today</a>
   </li>
 <li class="plan">
@@ -180,29 +207,35 @@
       <h3>Monthly</h3>
       
     </div>
+    <p class="today-price">£300 <span>today</span></p>
     <p>£250 setup + £50 monthly — £300 today</p>
-    <p>Charged today: £300. Then £50 each month. The setup fee is not charged again.</p>
+    <p class="renews">Then £50 each month. The setup fee is not charged again.</p>
     <a class="button button-primary" href="https://buy.stripe.com/test_00wbIV3tq2eCfQAabe1gs02?client_reference_id=rider_se16_pop_inn_cafe">Checkout · £300 today</a>
   </li></ol>
     </dialog>
   </article>
 <article class="card" data-name="Harryliz Barbers" data-area="134 Lower Road, Surrey Quays, SE16 2UG" data-reference="rider_se16_harryliz_barbers">
-    <img class="preview" src="https://androidkrayze.github.io/harryliz-barbers-demo/images/hero-exterior.jpg" alt="Website preview of Harryliz Barbers" loading="lazy" decoding="async">
-    <div class="card-body">
+    <div class="preview-wrap">
+      <img class="preview" src="https://androidkrayze.github.io/harryliz-barbers-demo/images/hero-exterior.jpg" alt="Website preview of Harryliz Barbers" loading="lazy" decoding="async">
       <p class="status" data-status="not_visited">Not visited</p>
+    </div>
+    <div class="card-body">
       <h2>Harryliz Barbers</h2>
       <p class="area">134 Lower Road, Surrey Quays, SE16 2UG</p>
+      <p class="offer">From £300 today</p>
       <div class="actions">
         <a class="button button-secondary" href="https://androidkrayze.github.io/harryliz-barbers-demo/" target="_blank" rel="noopener noreferrer">View website demo</a>
-        <button class="button button-secondary" type="button" data-copy data-url="https://androidkrayze.github.io/harryliz-barbers-demo/">Copy demo link</button>
+        <div class="action-row">
+          <button class="button button-secondary" type="button" data-copy data-url="https://androidkrayze.github.io/harryliz-barbers-demo/">Copy demo link</button>
+          <a class="button button-secondary" data-whatsapp data-name="Harryliz Barbers" data-demo="https://androidkrayze.github.io/harryliz-barbers-demo/" href="https://wa.me/?text=Hello%2C%20we%20created%20a%20website%20demonstration%20for%20Harryliz%20Barbers.%0A%0AYou%20can%20view%20it%20here%3A%0Ahttps%3A%2F%2Fandroidkrayze.github.io%2Fharryliz-barbers-demo%2F%0A%0AIf%20you%20like%20it%2C%20we%20can%20publish%20and%20manage%20it%20for%20your%20business.">Share via WhatsApp</a>
+        </div>
         <p class="copy-status" role="status" aria-live="polite"></p>
         <label class="copy-fallback" hidden>
           Copy this demo link
           <input readonly value="https://androidkrayze.github.io/harryliz-barbers-demo/">
         </label>
-        <a class="button button-secondary" data-whatsapp data-name="Harryliz Barbers" data-demo="https://androidkrayze.github.io/harryliz-barbers-demo/" href="https://wa.me/?text=Hello%2C%20we%20created%20a%20website%20demonstration%20for%20Harryliz%20Barbers.%0A%0AYou%20can%20view%20it%20here%3A%0Ahttps%3A%2F%2Fandroidkrayze.github.io%2Fharryliz-barbers-demo%2F%0A%0AIf%20you%20like%20it%2C%20we%20can%20publish%20and%20manage%20it%20for%20your%20business.">Share via WhatsApp</a>
         <button class="button button-secondary" type="button" data-share data-name="Harryliz Barbers" data-demo="https://androidkrayze.github.io/harryliz-barbers-demo/" hidden>Share</button>
-        <button class="button button-primary" type="button" data-purchase>Purchase website</button>
+        <button class="button button-primary button-purchase" type="button" data-purchase>Purchase website</button>
       </div>
     </div>
     <dialog aria-labelledby="plans-harryliz_barbers">
@@ -216,8 +249,9 @@
       <h3>Annual</h3>
       
     </div>
+    <p class="today-price">£500 <span>today</span></p>
     <p>£250 setup + £250 annually — £500 today</p>
-    <p>Charged today: £500. Then £250 each year. The setup fee is not charged again.</p>
+    <p class="renews">Then £250 each year. The setup fee is not charged again.</p>
     <a class="button button-primary" href="https://buy.stripe.com/test_28E14hd40bPc5bW8361gs00?client_reference_id=rider_se16_harryliz_barbers">Checkout · £500 today</a>
   </li>
 <li class="plan popular">
@@ -225,8 +259,9 @@
       <h3>Six-monthly</h3>
       <p class="badge">Most Popular</p>
     </div>
+    <p class="today-price">£450 <span>today</span></p>
     <p>£250 setup + £200 every 6 months — £450 today</p>
-    <p>Charged today: £450. Then £200 every 6 months. The setup fee is not charged again.</p>
+    <p class="renews">Then £200 every 6 months. The setup fee is not charged again.</p>
     <a class="button button-primary" href="https://buy.stripe.com/test_bJe5kxaVSf1o5bWeru1gs01?client_reference_id=rider_se16_harryliz_barbers">Checkout · £450 today</a>
   </li>
 <li class="plan">
@@ -234,29 +269,35 @@
       <h3>Monthly</h3>
       
     </div>
+    <p class="today-price">£300 <span>today</span></p>
     <p>£250 setup + £50 monthly — £300 today</p>
-    <p>Charged today: £300. Then £50 each month. The setup fee is not charged again.</p>
+    <p class="renews">Then £50 each month. The setup fee is not charged again.</p>
     <a class="button button-primary" href="https://buy.stripe.com/test_00wbIV3tq2eCfQAabe1gs02?client_reference_id=rider_se16_harryliz_barbers">Checkout · £300 today</a>
   </li></ol>
     </dialog>
   </article>
 <article class="card" data-name="Albion Fish Bar" data-area="36 Albion Street, Rotherhithe, SE16 7JQ" data-reference="rider_se16_albion_fish_bar">
-    <img class="preview" src="https://androidkrayze.github.io/albion-fish-bar-demo/images/hero-fish-chips.jpg" alt="Website preview of Albion Fish Bar" loading="lazy" decoding="async">
-    <div class="card-body">
+    <div class="preview-wrap">
+      <img class="preview" src="https://androidkrayze.github.io/albion-fish-bar-demo/images/hero-fish-chips.jpg" alt="Website preview of Albion Fish Bar" loading="lazy" decoding="async">
       <p class="status" data-status="not_visited">Not visited</p>
+    </div>
+    <div class="card-body">
       <h2>Albion Fish Bar</h2>
       <p class="area">36 Albion Street, Rotherhithe, SE16 7JQ</p>
+      <p class="offer">From £300 today</p>
       <div class="actions">
         <a class="button button-secondary" href="https://androidkrayze.github.io/albion-fish-bar-demo/" target="_blank" rel="noopener noreferrer">View website demo</a>
-        <button class="button button-secondary" type="button" data-copy data-url="https://androidkrayze.github.io/albion-fish-bar-demo/">Copy demo link</button>
+        <div class="action-row">
+          <button class="button button-secondary" type="button" data-copy data-url="https://androidkrayze.github.io/albion-fish-bar-demo/">Copy demo link</button>
+          <a class="button button-secondary" data-whatsapp data-name="Albion Fish Bar" data-demo="https://androidkrayze.github.io/albion-fish-bar-demo/" href="https://wa.me/?text=Hello%2C%20we%20created%20a%20website%20demonstration%20for%20Albion%20Fish%20Bar.%0A%0AYou%20can%20view%20it%20here%3A%0Ahttps%3A%2F%2Fandroidkrayze.github.io%2Falbion-fish-bar-demo%2F%0A%0AIf%20you%20like%20it%2C%20we%20can%20publish%20and%20manage%20it%20for%20your%20business.">Share via WhatsApp</a>
+        </div>
         <p class="copy-status" role="status" aria-live="polite"></p>
         <label class="copy-fallback" hidden>
           Copy this demo link
           <input readonly value="https://androidkrayze.github.io/albion-fish-bar-demo/">
         </label>
-        <a class="button button-secondary" data-whatsapp data-name="Albion Fish Bar" data-demo="https://androidkrayze.github.io/albion-fish-bar-demo/" href="https://wa.me/?text=Hello%2C%20we%20created%20a%20website%20demonstration%20for%20Albion%20Fish%20Bar.%0A%0AYou%20can%20view%20it%20here%3A%0Ahttps%3A%2F%2Fandroidkrayze.github.io%2Falbion-fish-bar-demo%2F%0A%0AIf%20you%20like%20it%2C%20we%20can%20publish%20and%20manage%20it%20for%20your%20business.">Share via WhatsApp</a>
         <button class="button button-secondary" type="button" data-share data-name="Albion Fish Bar" data-demo="https://androidkrayze.github.io/albion-fish-bar-demo/" hidden>Share</button>
-        <button class="button button-primary" type="button" data-purchase>Purchase website</button>
+        <button class="button button-primary button-purchase" type="button" data-purchase>Purchase website</button>
       </div>
     </div>
     <dialog aria-labelledby="plans-albion_fish_bar">
@@ -270,8 +311,9 @@
       <h3>Annual</h3>
       
     </div>
+    <p class="today-price">£500 <span>today</span></p>
     <p>£250 setup + £250 annually — £500 today</p>
-    <p>Charged today: £500. Then £250 each year. The setup fee is not charged again.</p>
+    <p class="renews">Then £250 each year. The setup fee is not charged again.</p>
     <a class="button button-primary" href="https://buy.stripe.com/test_28E14hd40bPc5bW8361gs00?client_reference_id=rider_se16_albion_fish_bar">Checkout · £500 today</a>
   </li>
 <li class="plan popular">
@@ -279,8 +321,9 @@
       <h3>Six-monthly</h3>
       <p class="badge">Most Popular</p>
     </div>
+    <p class="today-price">£450 <span>today</span></p>
     <p>£250 setup + £200 every 6 months — £450 today</p>
-    <p>Charged today: £450. Then £200 every 6 months. The setup fee is not charged again.</p>
+    <p class="renews">Then £200 every 6 months. The setup fee is not charged again.</p>
     <a class="button button-primary" href="https://buy.stripe.com/test_bJe5kxaVSf1o5bWeru1gs01?client_reference_id=rider_se16_albion_fish_bar">Checkout · £450 today</a>
   </li>
 <li class="plan">
@@ -288,8 +331,9 @@
       <h3>Monthly</h3>
       
     </div>
+    <p class="today-price">£300 <span>today</span></p>
     <p>£250 setup + £50 monthly — £300 today</p>
-    <p>Charged today: £300. Then £50 each month. The setup fee is not charged again.</p>
+    <p class="renews">Then £50 each month. The setup fee is not charged again.</p>
     <a class="button button-primary" href="https://buy.stripe.com/test_00wbIV3tq2eCfQAabe1gs02?client_reference_id=rider_se16_albion_fish_bar">Checkout · £300 today</a>
   </li></ol>
     </dialog>

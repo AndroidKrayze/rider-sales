@@ -40,6 +40,12 @@ export function assertTestKey(key) {
   }
 }
 
+export function assertLiveKey(key) {
+  if (!key || !key.startsWith("sk_live_") || key.includes("REPLACE")) {
+    throw new Error("Refusing to run: live mode needs a real sk_live_ key.");
+  }
+}
+
 export function redact(value, secret) {
   const text = String(value ?? "");
   const withoutSecret = secret ? text.split(secret).join("[redacted]") : text;
@@ -215,8 +221,9 @@ async function ensurePaymentLinks(stripe, prices) {
   return urls;
 }
 
-export async function setupStripe(secretKey) {
-  assertTestKey(secretKey);
+export async function setupStripe(secretKey, { allowLive = false } = {}) {
+  if (allowLive) assertLiveKey(secretKey);
+  else assertTestKey(secretKey);
   const stripe = new Stripe(secretKey);
   const product = await ensureProduct(stripe);
   const prices = await ensurePrices(stripe, product.id);
@@ -246,17 +253,19 @@ function printResult({ product, prices, urls }) {
 }
 
 async function main() {
+  const allowLive = process.env.STRIPE_ALLOW_LIVE === "1";
   const fromFile = loadEnvFile(path.join(root, ".env"));
   const secretKey = process.env.STRIPE_SECRET_KEY || fromFile.STRIPE_SECRET_KEY || "";
   try {
-    assertTestKey(secretKey);
+    if (allowLive) assertLiveKey(secretKey);
+    else assertTestKey(secretKey);
   } catch (error) {
     console.error(error.message);
     process.exit(1);
   }
 
   try {
-    const result = await setupStripe(secretKey);
+    const result = await setupStripe(secretKey, { allowLive });
     printResult(result);
   } catch (error) {
     console.error(redact(error?.stack || error?.message || error, secretKey));
