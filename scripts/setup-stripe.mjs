@@ -41,15 +41,17 @@ export function assertTestKey(key) {
 }
 
 export function assertLiveKey(key) {
-  if (!key || !key.startsWith("sk_live_") || key.includes("REPLACE")) {
-    throw new Error("Refusing to run: live mode needs a real sk_live_ key.");
+  const liveSecret = key?.startsWith("sk_live_");
+  const liveRestricted = key?.startsWith("rk_live_");
+  if (!key || key.includes("REPLACE") || (!liveSecret && !liveRestricted)) {
+    throw new Error("Refusing to run: live mode needs a real sk_live_ or rk_live_ key.");
   }
 }
 
 export function redact(value, secret) {
   const text = String(value ?? "");
   const withoutSecret = secret ? text.split(secret).join("[redacted]") : text;
-  return withoutSecret.replace(/sk_(?:test|live)_[A-Za-z0-9]+/g, "[redacted]");
+  return withoutSecret.replace(/(?:sk|rk)_(?:test|live)_[A-Za-z0-9]+/g, "[redacted]");
 }
 
 function sameRecurring(actual, expected) {

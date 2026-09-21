@@ -11,9 +11,11 @@ test("setup refuses any key that is not a real test key", () => {
 
 test("live mode accepts only a real live key", () => {
   const live = "sk_" + "live_" + "example";
+  const restricted = "rk_" + "live_" + "example";
   assert.throws(() => assertLiveKey("sk_test_example"), /sk_live_/);
   assert.throws(() => assertLiveKey(""), /sk_live_/);
   assert.doesNotThrow(() => assertLiveKey(live));
+  assert.doesNotThrow(() => assertLiveKey(restricted));
 });
 
 test("errors do not keep the secret key", () => {
