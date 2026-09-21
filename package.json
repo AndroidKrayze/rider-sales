@@ -1,0 +1,13 @@
+{
+  "name": "rider-sales",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "stripe:setup": "node scripts/setup-stripe.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "build": "node scripts/build.mjs"
+  },
+  "dependencies": {
+    "stripe": "^22.6.2"
+  }
+}
