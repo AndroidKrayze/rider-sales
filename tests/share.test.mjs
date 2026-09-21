@@ -3,7 +3,9 @@ import test from "node:test";
 import {
   COPY_FALLBACK_MESSAGE,
   COPY_MESSAGE,
+  PAYMENT_COPY_MESSAGE,
   copyDemoLink,
+  paymentWhatsappMessage,
   webSharePayload,
   whatsappMessage,
   whatsappUrls
@@ -84,4 +86,29 @@ If you like it, we can publish and manage it for your business.`);
   assert.equal(payload.title, "Jimmy's Barber");
   assert.equal(payload.url, demo);
   assert.equal(payload.text, message);
+});
+
+test("payment links can be copied and shared on WhatsApp", async () => {
+  const payment = "https://buy.stripe.com/live_annual?client_reference_id=rider_nw_jimmys_barber";
+  const writes = [];
+  const copied = await copyDemoLink(payment, {
+    writeText: async (value) => writes.push(value)
+  }, null, { success: PAYMENT_COPY_MESSAGE });
+  assert.equal(copied.message, "Payment link copied");
+  assert.deepEqual(writes, [payment]);
+
+  const message = paymentWhatsappMessage(
+    "Jimmy's Barber",
+    "Annual",
+    payment,
+    "£250 setup + £250 annually — £500 today"
+  );
+  assert.match(message, /payment link for Jimmy's Barber/);
+  assert.match(message, /Annual: £250 setup \+ £250 annually — £500 today/);
+  assert.match(message, new RegExp(payment.replaceAll("?", "\\?")));
+  const urls = whatsappUrls(message);
+  assert.match(urls.mobile, /^https:\/\/wa\.me\/\?text=/);
+  assert.match(urls.web, /^https:\/\/web\.whatsapp\.com\/send\?text=/);
+  assert.equal(decodeURIComponent(new URL(urls.mobile).searchParams.get("text")), message);
+  assert.match(urls.mobile, /Jimmy%27s/);
 });

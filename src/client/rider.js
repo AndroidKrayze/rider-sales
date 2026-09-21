@@ -1,4 +1,10 @@
-import { copyDemoLink, webSharePayload, whatsappMessage, whatsappUrls } from "./share.js";
+import {
+  copyDemoLink,
+  paymentWhatsappMessage,
+  webSharePayload,
+  whatsappMessage,
+  whatsappUrls
+} from "./share.js";
 
 const search = document.querySelector("#business-search");
 const cards = [...document.querySelectorAll(".card")];
@@ -27,7 +33,9 @@ form.addEventListener("submit", (event) => event.preventDefault());
 search.addEventListener("input", applySearch);
 
 for (const link of document.querySelectorAll("[data-whatsapp]")) {
-  const message = whatsappMessage(link.dataset.name, link.dataset.demo);
+  const message = link.hasAttribute("data-payment")
+    ? paymentWhatsappMessage(link.dataset.name, link.dataset.plan, link.dataset.url, link.dataset.summary)
+    : whatsappMessage(link.dataset.name, link.dataset.demo);
   const urls = whatsappUrls(message);
   link.href = isMobile() ? urls.mobile : urls.web;
 }
@@ -45,12 +53,15 @@ for (const button of document.querySelectorAll("[data-share]")) {
 }
 
 for (const button of document.querySelectorAll("[data-copy]")) {
-  const actions = button.closest(".actions");
-  const status = actions.querySelector(".copy-status");
-  const fallback = actions.querySelector(".copy-fallback");
+  const scope = button.closest(".plan") || button.closest(".actions");
+  const status = scope.querySelector(".copy-status");
+  const fallback = scope.querySelector(".copy-fallback");
   const input = fallback.querySelector("input");
   button.addEventListener("click", async () => {
-    const result = await copyDemoLink(button.dataset.url, navigator.clipboard, document);
+    const result = await copyDemoLink(button.dataset.url, navigator.clipboard, document, {
+      success: button.dataset.copied,
+      fallback: button.dataset.fallback
+    });
     status.textContent = result.message;
     if (result.fallback) {
       fallback.hidden = false;

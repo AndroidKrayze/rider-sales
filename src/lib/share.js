@@ -1,5 +1,7 @@
 export const COPY_MESSAGE = "Demo link copied";
 export const COPY_FALLBACK_MESSAGE = "Copy this demo link";
+export const PAYMENT_COPY_MESSAGE = "Payment link copied";
+export const PAYMENT_COPY_FALLBACK = "Copy this payment link";
 
 export function whatsappMessage(businessName, demoUrl) {
   return `Hello, we created a website demonstration for ${businessName}.
@@ -8,6 +10,15 @@ You can view it here:
 ${demoUrl}
 
 If you like it, we can publish and manage it for your business.`;
+}
+
+export function paymentWhatsappMessage(businessName, planName, paymentUrl, summary) {
+  return `Hello, here is the payment link for ${businessName}.
+
+${planName}: ${summary}
+
+You can pay here:
+${paymentUrl}`;
 }
 
 export function whatsappUrls(message) {
@@ -26,11 +37,13 @@ export function webSharePayload(businessName, demoUrl) {
   };
 }
 
-export async function copyDemoLink(text, clipboard, documentRef) {
+export async function copyDemoLink(text, clipboard, documentRef, messages = {}) {
+  const success = messages.success || COPY_MESSAGE;
+  const fallbackMessage = messages.fallback || COPY_FALLBACK_MESSAGE;
   if (clipboard && typeof clipboard.writeText === "function") {
     try {
       await clipboard.writeText(text);
-      return { ok: true, fallback: false, message: COPY_MESSAGE, text };
+      return { ok: true, fallback: false, message: success, text };
     } catch {
       // The browser blocked the Clipboard API. Try the manual fallback.
     }
@@ -40,7 +53,7 @@ export async function copyDemoLink(text, clipboard, documentRef) {
   return {
     ok: copied,
     fallback: true,
-    message: copied ? COPY_MESSAGE : COPY_FALLBACK_MESSAGE,
+    message: copied ? success : fallbackMessage,
     text
   };
 }

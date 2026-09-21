@@ -6,7 +6,7 @@ import { SETUP_NOTE, plans } from "../src/config/plans.js";
 import { riders } from "../src/config/riders.js";
 import { clientReferenceId, withClientReference } from "../src/lib/checkout.js";
 import { findSecrets } from "../src/lib/secrets.js";
-import { whatsappMessage, whatsappUrls } from "../src/lib/share.js";
+import { paymentWhatsappMessage, whatsappMessage, whatsappUrls } from "../src/lib/share.js";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const dist = path.join(root, "dist");
@@ -35,11 +35,22 @@ function checkoutHref(baseUrl, reference) {
   return withClientReference(baseUrl, reference);
 }
 
-function planMarkup(plan, href) {
+function planMarkup(plan, href, business) {
   const popular = plan.popular ? `<p class="badge">Most Popular</p>` : "";
-  const action = href
+  const checkout = href
     ? `<a class="button button-primary" href="${escapeHtml(href)}">Checkout · ${escapeHtml(plan.todayLabel)} today</a>`
     : `<button class="button button-primary" type="button" disabled>Checkout unavailable</button>`;
+  const share = href
+    ? `<div class="plan-share">
+        <button class="button button-secondary" type="button" data-copy data-url="${escapeHtml(href)}" data-copied="Payment link copied" data-fallback="Copy this payment link">Copy payment link</button>
+        <p class="copy-status" role="status" aria-live="polite"></p>
+        <label class="copy-fallback" hidden>
+          Copy this payment link
+          <input readonly value="${escapeHtml(href)}">
+        </label>
+        <a class="button button-secondary" data-whatsapp data-payment data-name="${escapeHtml(business.name)}" data-plan="${escapeHtml(plan.name)}" data-summary="${escapeHtml(plan.label)}" data-url="${escapeHtml(href)}" href="${escapeHtml(whatsappUrls(paymentWhatsappMessage(business.name, plan.name, href, plan.label)).mobile)}">Share via WhatsApp</a>
+      </div>`
+    : "";
   return `<li class="plan${plan.popular ? " popular" : ""}">
     <div class="plan-heading">
       <h3>${escapeHtml(plan.name)}</h3>
@@ -48,7 +59,8 @@ function planMarkup(plan, href) {
     <p class="today-price">${escapeHtml(plan.todayLabel)} <span>today</span></p>
     <p>${escapeHtml(plan.label)}</p>
     <p class="renews">Then ${escapeHtml(plan.renewsLabel)}. The setup fee is not charged again.</p>
-    ${action}
+    ${checkout}
+    ${share}
   </li>`;
 }
 
@@ -59,7 +71,7 @@ function cardMarkup(business, riderCode, links, index) {
   const whatsapp = whatsappUrls(message);
   const loading = index === 0 ? "eager" : "lazy";
   const plansHtml = plans
-    .map((plan) => planMarkup(plan, checkoutHref(links[plan.id], reference)))
+    .map((plan) => planMarkup(plan, checkoutHref(links[plan.id], reference), business))
     .join("\n");
 
   return `<article class="card" data-name="${escapeHtml(business.name)}" data-area="${escapeHtml(business.area)}" data-reference="${escapeHtml(reference)}">

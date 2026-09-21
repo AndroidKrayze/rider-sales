@@ -300,6 +300,8 @@ dialog::backdrop { background: rgba(16, 38, 31, 0.62); }
 
 .renews { color: var(--muted); }
 
+.plan-share { display: grid; gap: 0.45rem; margin-top: 0.2rem; }
+
 .badge {
   margin: 0;
   padding: 0.22rem 0.55rem;

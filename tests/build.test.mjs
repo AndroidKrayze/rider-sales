@@ -27,6 +27,9 @@ test("rendered checkout links append references with ? and &", () => {
     assert.match(url.searchParams.get("client_reference_id"), /^rider_se16_/);
     assert.match(url.search, /&/);
   }
+  assert.match(html, /Copy payment link/);
+  assert.match(html, /data-copied="Payment link copied"/);
+  assert.match(html, /data-url="https:\/\/buy\.stripe\.com\/test_annual\?client_reference_id=rider_se16_servewell_cafe"/);
   assert.match(html, /Most Popular/);
   assert.match(html, new RegExp(SETUP_NOTE.replace(/[£]/g, "£")));
   assert.equal(findSecrets(html).length, 0);
@@ -37,6 +40,7 @@ test("empty payment links do not invent a checkout URL", () => {
     links: { annual: "", six_month: "", monthly: "" }
   });
   assert.equal(html.includes("buy.stripe.com"), false);
+  assert.equal(html.includes("Copy payment link"), false);
   assert.match(html, /Checkout unavailable/);
   assert.match(html, /data-reference="rider_nw_dry_cleaners_hampstead"/);
   assert.match(html, /data-reference="rider_nw_jimmys_barber"/);
